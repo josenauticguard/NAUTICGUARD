@@ -1,0 +1,99 @@
+git clone https://github.com/TU-USUARIO/nauticguard-web.git
+cd nauticguard-web
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NáuticGuard - Technologies pour le contrôle des embarcations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="changeLanguage('fr')">Français</a></li>
+                <li><a href="#" onclick="changeLanguage('en')">English</a></li>
+                <li><a href="#" onclick="changeLanguage('it')">Italiano</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="content">
+        <!-- El contenido cambiará según el idioma seleccionado -->
+        <section>
+            <h1>Bienvenue à NáuticGuard</h1>
+            <p>Nous proposons des technologies basées sur l'IA pour surveiller en temps réel le fonctionnement des embarcations.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+4. Contenido del archivo styles.css
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #003366;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #003366;
+}
+
+5. Contenido del archivo script.js
+
+const content = {
+    'fr': {
+        title: 'Bienvenue à NáuticGuard',
+        description: 'Nous proposons des technologies basées sur l\'IA pour surveiller en temps réel le fonctionnement des embarcations.'
+    },
+    'en': {
+        title: 'Welcome to NáuticGuard',
+        description: 'We offer AI-based technologies for real-time monitoring of boat operations.'
+    },
+    'it': {
+        title: 'Benvenuti a NáuticGuard',
+        description: 'Offriamo tecnologie basate sull\'intelligenza artificiale per monitorare in tempo reale il funzionamento delle imbarcazioni.'
+    }
+};
+
+function changeLanguage(lang) {
+    const contentSection = document.getElementById('content');
+    contentSection.innerHTML = `
+        <section>
+            <h1>${content[lang].title}</h1>
+            <p>${content[lang].description}</p>
+        </section>
+    `;
+}
